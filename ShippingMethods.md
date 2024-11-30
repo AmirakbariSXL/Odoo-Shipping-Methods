@@ -150,3 +150,88 @@ If your business has a physical store or local delivery system, you can configur
 ### Outcome:
 This option is ideal for businesses that have a physical presence and want to offer local customers the ability to pick up their orders in person or have them delivered locally.
 
+---
+
+# Creating a Shipping Management Program Using Odoo Studio
+
+This guide will walk you through the process of creating a custom shipping management module using Odoo Studio, enabling the management of different shipping methods, orders, and tracking.
+
+## Steps to Create the Shipping Management Program:
+
+### 1. **Create the "Shipping" App via Studio**
+   - Navigate to the **Studio** menu in Odoo.
+   - Create a new app called **Shipping**.
+
+### 2. **Add a Menu Item for Shipping Status**
+   - In the **Menu Name** section, enter **Shipping Status**.
+
+### 3. **Create a New Model**
+   - Select **New Model** to create a new data model for managing shipping-related information.
+
+### 4. **Enable Required Features**
+   - In the **Features** section, enable the following:
+     - **Pipeline Stages**
+     - **Custom Sorting**
+     - **Chatter** (for communication logs)
+     - **Archiving** (for storing and managing past records)
+   - Once done, create the model.
+
+### 5. **Add a Many2One Field for Sales Order**
+   - In the Studio, add a **Many2One** field with the model linked to **Sales Order**.
+
+### 6. **Set the Label for Sales Order Reference**
+   - In the field label for the added Many2One, enter **Sales Order Reference**.
+
+### 7. **Add Another Many2One Field for Shipping Methods**
+   - Again, click **Add Item**, choose **Many2One**, and link it to the **Shipping Methods** model.
+
+### 8. **Label the Field as Shipping Methods**
+   - In the field label, write **Shipping Methods** and save.
+
+### 9. **Enable Graph and Pivot Views for Reporting**
+   - Go to the **Views** section and select **Graph**.
+   - Activate the **Graph View** to allow graphical reports.
+   - Do the same for the **Pivot View** (to enable pivot-based reports).
+
+### 10. **Exit Studio and Use the Created Module**
+   - Close the Studio.
+   - Go to the new module you created and click on **Create** to define shipping stages and processes.
+
+### 11. **Define a Shipping Process**
+   - In the opened field, type **Shipping** as an example to represent the shipping stage.
+
+### 12. **Link Sales Order and Shipping Methods**
+   - Re-enter Studio and link the **Sales Order Reference** field to connect the sales order.
+   - Additionally, you can add **Shipping Methods** to this view.
+
+## How to Work with This Custom Shipping Module:
+
+### 1. **Create a Sales Order**
+   - First, create a sales order (e.g., a sale from San Group to a customer).
+
+### 2. **Activate Delivery Methods in Configuration**
+   - Go to **Settings** > **Configuration** and enable **Delivery Methods** to track shipments through the new module.
+
+### 3. **Configure Shipping Methods**
+   - Go to **Shipping Methods Configuration** and create three different methods:
+     - **Sea Freight**
+     - **Land Freight**
+     - **Rail Freight**
+     - **ETC...
+   - Select the countries (e.g., Iran and Russia) for these shipping methods and assign service types (e.g., standard or expedited).
+
+### 4. **Publish the Configuration**
+   - After setting the configurations, publish them to make them available for use.
+
+### 5. **Tracking and Adding Shipping Methods to Sales Orders**
+   - Once the sales order is created, go to the module to define the shipping methods.
+   - You will be able to add shipping methods, sales orders, invoices, and comments related to the shipment directly within the module.
+
+### 6. **Add Shipping Costs to the Sales Invoice**
+   - Once the sales invoice is generated, you will see a section for **Shipping Methods** added to the invoice.
+   - You can select the appropriate shipping method and enter the corresponding shipping cost (if you need to charge the customer for shipping).
+
+### 7. **Parallel Entry for Purchase of Shipping Services**
+   - On the purchasing side, you will also record the cost of the shipping service as a purchase expense through the **Purchase** module.
+
+
